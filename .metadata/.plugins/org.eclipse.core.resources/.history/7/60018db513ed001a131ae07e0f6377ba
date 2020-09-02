@@ -1,0 +1,6 @@
+package Pessoas;
+
+public class Pessoas {
+	public String nome;
+	public String email;
+}

@@ -9,19 +9,17 @@ import dominio.Pessoa;
 public class Programa {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Pessoa p1 = new Pessoa(null, "Carlos da Silva", "carlos@gmail.com");
-		Pessoa p2 = new Pessoa(null, "Zecass da Souza", "souza@gmail.com");
-		Pessoa p3 = new Pessoa(null, "Welligton de Macedo", "wellington@gmail.com");
-		
+			
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
 		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-		em.persist(p1);
-		em.persist(p2);
-		em.persist(p3);
-		em.getTransaction().commit();
+		
+		Pessoa p = em.find(Pessoa.class, 2);//busca por id
+		
+		System.out.println(p);
+		
 		System.out.println("Feito!");
+		em.close();
+		emf.close();
 		
 		
 		
